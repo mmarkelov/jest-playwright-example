@@ -12,7 +12,12 @@
     "type": "git",
     "url": "git+https://github.com/mmarkelov/jest-playwright-example.git"
   },
-  "keywords": [],
+  "keywords": [
+    "jest",
+    "playwright",
+    "jest-playwright",
+    "example"
+  ],
   "author": "mmarkelov",
   "bugs": {
     "url": "https://github.com/mmarkelov/jest-playwright-example/issues"

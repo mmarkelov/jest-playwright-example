@@ -1,8 +1,6 @@
 const rimraf = require('rimraf');
-const os = require('os');
-const path = require('path');
 
-const DIR = path.join(os.tmpdir(), 'jest_playwright_global_setup');
+const { DIR } = require('./constants');
 
 module.exports = async function() {
     console.log('Teardown Playwright');

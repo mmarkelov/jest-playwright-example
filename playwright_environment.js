@@ -1,10 +1,9 @@
 const NodeEnvironment = require('jest-environment-node');
 const playwright = require('playwright');
 const fs = require('fs');
-const os = require('os');
 const path = require('path');
 
-const DIR = path.join(os.tmpdir(), 'jest_playwright_global_setup');
+const { DIR } = require('./constants');
 
 class PuppeteerEnvironment extends NodeEnvironment {
     constructor(config) {
@@ -18,7 +17,8 @@ class PuppeteerEnvironment extends NodeEnvironment {
         if (!wsEndpoint) {
             throw new Error('wsEndpoint not found')
         }
-        this.global.__BROWSER__ = await playwright['chromium'].connect({
+        const browserType = process.env.BROWSER;
+        this.global.__BROWSER__ = await playwright[browserType].connect({
             browserWSEndpoint: wsEndpoint,
         })
     }

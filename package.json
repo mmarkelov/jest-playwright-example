@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "Example of using the global setup/teardown apis alone with the async test-environment apis to make jest work smoothly with playwright.",
   "scripts": {
-    "test": "jest"
+    "test-chromium": "BROWSER=chromium jest chromium",
+    "test-firefox": "BROWSER=firefox jest firefox",
+    "test-webkit": "BROWSER=webkit jest webkit",
+    "test": "npm run test-chromium && npm run test-firefox && npm run test-webkit"
   },
   "repository": {
     "type": "git",

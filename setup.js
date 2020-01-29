@@ -1,13 +1,16 @@
 const playwright = require('playwright');
 const fs = require('fs');
-const os = require('os');
 const path = require('path');
 
-const DIR = path.join(os.tmpdir(), 'jest_playwright_global_setup');
+const { DIR } = require('./constants');
+const { checkBrowserEnv } = require('./utils');
 
 module.exports = async function() {
-    console.log('Setup Playwright')
-    const browser = await playwright['chromium'].launchBrowserApp({ webSocket: true});
+    const browserType = process.env.BROWSER;
+    checkBrowserEnv(browserType);
+    console.log('Setup Playwright');
+    const OPTIONS = { webSocket: true};
+    const browser = await playwright[browserType].launchBrowserApp(OPTIONS);
     // This global is not available inside tests but only in global teardown
     global.__BROWSER_GLOBAL__ = browser;
     // Instead, we expose the connection details via file system to be used in tests

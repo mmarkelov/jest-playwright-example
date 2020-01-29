@@ -1,13 +1,13 @@
 const timeout = 5000;
 
 describe(
-    'Test',
+    'Firefox',
     () => {
         let page;
         beforeAll(async () => {
             const context = await global.__BROWSER__.newContext();
             page = await context.newPage();
-            await page.goto('https://google.com')
+            await page.goto('https://whatismybrowser.com/')
         }, timeout);
 
         afterAll(async () => {
@@ -15,8 +15,8 @@ describe(
         });
 
         it('should load without error', async () => {
-            const text = await page.title();
-            expect(text).toBe('Google')
+            const browser = await page.$eval('.string-major a', el => el.text);
+            expect(browser).toContain('Firefox')
         })
     },
     timeout

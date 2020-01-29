@@ -1,0 +1,18 @@
+{
+  "name": "jest-playwright-example",
+  "version": "1.0.0",
+  "description": "Example of using the global setup/teardown apis alone with the async test-environment apis to make jest work smoothly with playwright.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmarkelov/jest-playwright-example.git"
+  },
+  "keywords": [],
+  "author": "mmarkelov",
+  "bugs": {
+    "url": "https://github.com/mmarkelov/jest-playwright-example/issues"
+  },
+  "homepage": "https://github.com/mmarkelov/jest-playwright-example#readme"
+}
